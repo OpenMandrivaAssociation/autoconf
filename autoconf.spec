@@ -1,13 +1,9 @@
-%define name	autoconf2.5
+%define name	autoconf
 %define version	2.61
-%define release %mkrel 2
+%define release %mkrel 3
 
 %define docheck 1
 %{?_without_check: %global docheck 0}
-
-# Factorize uses of autoconf libdir home and
-# handle only one exception in rpmlint
-%define scriptdir %{_datadir}/autotools
 
 Name:		%{name}
 Summary:	A GNU tool for automatically configuring source code
@@ -22,18 +18,14 @@ BuildArch:	noarch
 
 Source:		ftp://ftp.gnu.org/gnu/autoconf/autoconf-%{version}.tar.bz2
 Source1:	autoconf-site-start.el
-Source2:	autoconf_special_readme2.5
-Source3:	autoconf-ac-wrapper.pl
-Patch0:		autoconf-2.59-fix-info.patch
 
 Requires(post):	/sbin/install-info
 Requires(preun):	/sbin/install-info
 BuildRequires:	texinfo m4
 BuildRequires:	help2man
 Requires:	m4 mktemp
-Requires:	autoconf2.1
-Conflicts:	autoconf <= 1:2.13-19mdk
-Provides:	autoconf = %{epoch}:%{version}-%{release}
+Obsoletes:	autoconf2.5
+Provides:	autoconf2.5 = %{epoch}:%{version}-%{release}
 
 # for tests
 %if %docheck
@@ -57,12 +49,8 @@ may be configuring software with an Autoconf-generated script;
 Autoconf is only required for the generation of the scripts, not
 their use.
 
-%{expand:%(cat %{SOURCE2})}
-
 %prep
 %setup -q -n autoconf-%{version}
-%patch0 -p1 -b .addinfo
-install -m644 %{SOURCE2} IMPORTANT.README.MDK
 
 %build
 %configure2_5x
@@ -71,22 +59,11 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall_std
-
-# automatic autoconf wrapper
-install -D -m 755 %{SOURCE3} $RPM_BUILD_ROOT%{scriptdir}/ac-wrapper.pl
+%makeinstall
 
 # We don't want to include the standards.info stuff in the package,
 # because it comes from binutils...
 rm -f $RPM_BUILD_ROOT%{_infodir}/standards*
-
-# links all scripts to wrapper
-for i in $RPM_BUILD_ROOT%{_bindir}/*; do
-	mv $i ${i}-2.5x
-	ln -s %{scriptdir}/ac-wrapper.pl $i
-done
-
-mv $RPM_BUILD_ROOT%{_infodir}/autoconf.info $RPM_BUILD_ROOT%{_infodir}/autoconf-2.5x.info
 
 # emacs stuff
 install -D -m 644 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/emacs/site-start.d/%{name}.el
@@ -106,18 +83,17 @@ make check	# VERBOSE=1
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%_install_info autoconf-2.5x.info
+%_install_info autoconf.info
 
 %preun
-%_remove_install_info autoconf-2.5x.info
+%_remove_install_info autoconf.info
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS BUGS ChangeLog* COPYING IMPORTANT.README.MDK INSTALL NEWS README THANKS TODO
+%doc AUTHORS BUGS ChangeLog* COPYING INSTALL NEWS README THANKS TODO
 %config(noreplace) %{_sysconfdir}/emacs/site-start.d/*.el
 %{_bindir}/*
 %{_datadir}/autoconf
 %{_datadir}/emacs/site-lisp/*.el*
 %{_infodir}/*
 %{_mandir}/*/*
-%{scriptdir}
