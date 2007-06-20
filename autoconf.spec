@@ -1,6 +1,6 @@
 %define name	autoconf
 %define version	2.61
-%define release %mkrel 3
+%define release %mkrel 4
 
 %define docheck 1
 %{?_without_check: %global docheck 0}
@@ -26,6 +26,7 @@ BuildRequires:	help2man
 Requires:	m4 mktemp
 Obsoletes:	autoconf2.5
 Provides:	autoconf2.5 = %{epoch}:%{version}-%{release}
+Conflicts:	autoconf2.1 < 2.13-26
 
 # for tests
 %if %docheck
