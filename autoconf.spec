@@ -19,8 +19,8 @@ BuildArch:	noarch
 Source:		ftp://ftp.gnu.org/gnu/autoconf/autoconf-%{version}.tar.bz2
 Source1:	autoconf-site-start.el
 
-Requires(post):	/sbin/install-info
-Requires(preun):	/sbin/install-info
+Requires(post):	info-install
+Requires(preun):	info-install
 BuildRequires:	texinfo m4
 BuildRequires:	help2man
 Requires:	m4 mktemp
