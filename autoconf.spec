@@ -13,6 +13,7 @@ Epoch:		1
 License:	GPL
 Group:		Development/Other
 URL:		http://www.gnu.org/software/autoconf/
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot/
 BuildArch:	noarch
 
 Source:		ftp://ftp.gnu.org/gnu/autoconf/autoconf-%{version}.tar.bz2
