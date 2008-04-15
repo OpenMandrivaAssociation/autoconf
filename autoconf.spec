@@ -1,6 +1,6 @@
 %define name	autoconf
-%define version	2.61
-%define release %mkrel 7
+%define version	2.62
+%define release %mkrel 1
 
 %define docheck 1
 %{?_without_check: %global docheck 0}
