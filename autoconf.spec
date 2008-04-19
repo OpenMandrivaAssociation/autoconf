@@ -56,8 +56,7 @@ their use.
 
 %build
 %configure2_5x
-# parallel build does not work
-make
+%make
 
 %install
 rm -rf $RPM_BUILD_ROOT
