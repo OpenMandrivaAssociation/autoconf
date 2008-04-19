@@ -1,6 +1,6 @@
 %define name	autoconf
 %define version	2.62
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define docheck 1
 %{?_without_check: %global docheck 0}
@@ -18,7 +18,7 @@ BuildArch:	noarch
 
 Source:		ftp://ftp.gnu.org/gnu/autoconf/autoconf-%{version}.tar.bz2
 Source1:	autoconf-site-start.el
-
+Patch0:		autoconf-2.62-fix-multiline-string.patch
 Requires(post):	info-install
 Requires(preun):	info-install
 BuildRequires:	texinfo m4
@@ -52,6 +52,7 @@ their use.
 
 %prep
 %setup -q -n autoconf-%{version}
+%patch0 -p1 -b .multiline
 
 %build
 %configure2_5x
