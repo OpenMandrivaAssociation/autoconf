@@ -1,6 +1,6 @@
 %define name	autoconf
-%define version	2.62
-%define release %mkrel 3
+%define version	2.63
+%define release %mkrel 1
 
 %define docheck 1
 %{?_without_check: %global docheck 0}
@@ -10,7 +10,7 @@ Summary:	A GNU tool for automatically configuring source code
 Version:	%{version}
 Release:	%{release}
 Epoch:		1
-License:	GPL
+License:	GPLv2+ with exceptions
 Group:		Development/Other
 URL:		http://www.gnu.org/software/autoconf/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot/
@@ -60,7 +60,7 @@ their use.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+%makeinstall_std
 
 # We don't want to include the standards.info stuff in the package,
 # because it comes from binutils...
