@@ -1,5 +1,5 @@
 %define name	autoconf
-%define version	2.63
+%define version	2.64
 %define release %mkrel 1
 
 %define docheck 1
