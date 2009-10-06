@@ -1,6 +1,6 @@
 %define name	autoconf
 %define version	2.64
-%define release %mkrel 2
+%define release %mkrel 3
 
 %define docheck 1
 %{?_without_check: %global docheck 0}
@@ -95,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS BUGS ChangeLog* COPYING INSTALL NEWS README THANKS TODO
+%doc AUTHORS BUGS COPYING INSTALL NEWS README THANKS TODO
 %config(noreplace) %{_sysconfdir}/emacs/site-start.d/*.el
 %{_bindir}/*
 %{_datadir}/autoconf
