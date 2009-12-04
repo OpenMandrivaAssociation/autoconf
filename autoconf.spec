@@ -1,6 +1,6 @@
 %define name	autoconf
-%define version	2.64
-%define release %mkrel 3
+%define version	2.65
+%define release %mkrel 1
 
 %define docheck 1
 %{?_without_check: %global docheck 0}
@@ -20,7 +20,6 @@ Source:		ftp://ftp.gnu.org/gnu/autoconf/autoconf-%{version}.tar.bz2
 Source1:	autoconf-site-start.el
 Patch0:		autoconf-2.62-fix-multiline-string.patch
 Patch1:		autoconf-2.64-drop-failing-parallel-test.patch
-Patch2:		autoconf-2.64-fix-hard-failure-test.patch
 Requires(post):	info-install
 Requires(preun):	info-install
 BuildRequires:	texinfo m4
@@ -56,7 +55,6 @@ their use.
 %setup -q -n autoconf-%{version}
 %patch0 -p1 -b .multiline
 %patch1 -p1 -b .droptest
-%patch2 -p1 -b .fixtest
 
 %build
 %configure2_5x
