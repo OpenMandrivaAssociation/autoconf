@@ -1,6 +1,6 @@
 %define name	autoconf
 %define version	2.66
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define docheck 1
 %{?_without_check: %global docheck 0}
@@ -20,6 +20,8 @@ Source:		ftp://ftp.gnu.org/gnu/autoconf/autoconf-%{version}.tar.bz2
 Source1:	autoconf-site-start.el
 Patch0:		autoconf-2.62-fix-multiline-string.patch
 Patch1:		autoconf-2.64-drop-failing-parallel-test.patch
+#fwang: upstream patch to fix Regression of AC_CHECK_SIZEOF
+Patch2:		autoconf-2.66-git-types.patch
 Requires(post):	info-install
 Requires(preun):	info-install
 BuildRequires:	texinfo m4
@@ -55,6 +57,7 @@ their use.
 %setup -q -n autoconf-%{version}
 %patch0 -p1 -b .multiline
 %patch1 -p1 -b .droptest
+%patch2 -p1 -b .git
 
 %build
 %configure2_5x
