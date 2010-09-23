@@ -1,5 +1,5 @@
 %define name	autoconf
-%define version	2.67
+%define version	2.68
 %define release %mkrel 1
 
 %define docheck 1
@@ -57,7 +57,7 @@ their use.
 %patch1 -p1 -b .droptest
 
 %build
-%configure2_5x
+%configure2_5x --build=%_host
 %make
 
 %install
