@@ -61,20 +61,20 @@ their use.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
 # We don't want to include the standards.info stuff in the package,
 # because it comes from binutils...
-rm -f $RPM_BUILD_ROOT%{_infodir}/standards*
+rm -f %{buildroot}%{_infodir}/standards*
 
 # emacs stuff
-install -D -m 644 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/emacs/site-start.d/%{name}.el
+install -D -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/emacs/site-start.d/%{name}.el
 
 # if emacs-bin was not here, *.el and *.elc files will be missing - install *.el files anyway
-if [ ! -d $RPM_BUILD_ROOT/%{_datadir}/emacs/site-lisp ]; then
-	mkdir -p $RPM_BUILD_ROOT/%{_datadir}/emacs/site-lisp
-	install -m644 lib/emacs/*.el $RPM_BUILD_ROOT/%{_datadir}/emacs/site-lisp
+if [ ! -d %{buildroot}/%{_datadir}/emacs/site-lisp ]; then
+	mkdir -p %{buildroot}/%{_datadir}/emacs/site-lisp
+	install -m644 lib/emacs/*.el %{buildroot}/%{_datadir}/emacs/site-lisp
 fi
 
 %if %docheck
@@ -83,7 +83,7 @@ make check	# VERBOSE=1
 %endif
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %post
 %_install_info autoconf.info
