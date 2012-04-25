@@ -1,27 +1,20 @@
-%define name	autoconf
-%define version	2.68
-%define release %mkrel 2
-
 %define docheck 1
 %{?_without_check: %global docheck 0}
 
-Name:		%{name}
+Name:		autoconf
 Summary:	A GNU tool for automatically configuring source code
-Version:	%{version}
-Release:	%{release}
+Version:	2.69
+Release:	1
 Epoch:		1
 License:	GPLv2+ with exceptions
 Group:		Development/Other
 URL:		http://www.gnu.org/software/autoconf/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot/
 BuildArch:	noarch
 
-Source:		ftp://ftp.gnu.org/gnu/autoconf/autoconf-%{version}.tar.bz2
+Source:		ftp://ftp.gnu.org/gnu/autoconf/autoconf-%{version}.tar.xz
 Source1:	autoconf-site-start.el
 Patch0:		autoconf-2.62-fix-multiline-string.patch
 Patch1:		autoconf-2.64-drop-failing-parallel-test.patch
-Requires(post):	info-install
-Requires(preun):	info-install
 BuildRequires:	texinfo m4
 BuildRequires:	help2man
 Requires:	m4 mktemp
@@ -84,12 +77,6 @@ make check	# VERBOSE=1
 
 %clean
 rm -rf %{buildroot}
-
-%post
-%_install_info autoconf.info
-
-%preun
-%_remove_install_info autoconf.info
 
 %files
 %defattr(-,root,root)
