@@ -4,7 +4,7 @@
 Name:		autoconf
 Summary:	A GNU tool for automatically configuring source code
 Version:	2.69
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPLv2+ with exceptions
 Group:		Development/Other
