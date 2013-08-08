@@ -5,7 +5,7 @@ Summary:	A GNU tool for automatically configuring source code
 Name:		autoconf
 Epoch:		1
 Version:	2.69
-Release:	2
+Release:	3
 License:	GPLv2+ with exceptions
 Group:		Development/Other
 Url:		http://www.gnu.org/software/autoconf/
@@ -24,7 +24,6 @@ BuildRequires:	bison
 BuildRequires:	flex
 %endif
 Requires:	m4
-Requires:	mktemp
 Provides:	autoconf2.5 = %{EVRD}
 
 %description
