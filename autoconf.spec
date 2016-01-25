@@ -5,7 +5,7 @@ Summary:	A GNU tool for automatically configuring source code
 Name:		autoconf
 Epoch:		1
 Version:	2.69
-Release:	13
+Release:	14
 License:	GPLv2+ with exceptions
 Group:		Development/Other
 Url:		http://www.gnu.org/software/autoconf/
@@ -48,7 +48,7 @@ their use.
 %apply_patches
 
 %build
-%configure2_5x \
+%configure \
 	--build=%_host
 %make
 
@@ -81,4 +81,3 @@ make check	# VERBOSE=1
 %{_datadir}/emacs/site-lisp/*.el*
 %{_infodir}/*
 %{_mandir}/*/*
-
