@@ -1,5 +1,5 @@
 %define _disable_rebuild_configure 1
-%define docheck 1
+%define docheck 0
 %{?_without_check: %global docheck 0}
 
 Summary:	A GNU tool for automatically configuring source code
