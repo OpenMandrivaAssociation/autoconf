@@ -1,3 +1,4 @@
+%define _disable_rebuild_configure 1
 %define docheck 1
 %{?_without_check: %global docheck 0}
 
