@@ -6,7 +6,7 @@ Summary:	A GNU tool for automatically configuring source code
 Name:		autoconf
 Epoch:		1
 Version:	2.69
-Release:	15
+Release:	16
 License:	GPLv2+ with exceptions
 Group:		Development/Other
 Url:		http://www.gnu.org/software/autoconf/
@@ -45,16 +45,16 @@ Autoconf is only required for the generation of the scripts, not
 their use.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 
 %build
 %configure \
-	--build=%_host
-%make
+	--build="%{_host}"
+
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 # We don't want to include the standards.info stuff in the package,
 # because it comes from binutils...
