@@ -2,11 +2,15 @@
 %define docheck 0
 %{?_without_check: %global docheck 0}
 
+# filter out bogus perl(Autom4te*) dependencies	
+%global __requires_exclude perl\\(Autom4te::.*\\)
+%global __provides_exclude perl\\(Autom4te::.*\\)
+
 Summary:	A GNU tool for automatically configuring source code
 Name:		autoconf
 Epoch:		1
 Version:	2.69
-Release:	18
+Release:	19
 License:	GPLv2+ with exceptions
 Group:		Development/Other
 Url:		http://www.gnu.org/software/autoconf/
@@ -21,6 +25,7 @@ BuildArch:	noarch
 BuildRequires:	help2man
 BuildRequires:	m4
 BuildRequires:	texinfo
+BuildRequires:	make
 # for tests
 %if %docheck
 BuildRequires:	bison
