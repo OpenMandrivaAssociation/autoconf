@@ -10,7 +10,7 @@ Summary:	A GNU tool for automatically configuring source code
 Name:		autoconf
 Epoch:		1
 Version:	2.69
-Release:	19
+Release:	20
 License:	GPLv2+ with exceptions
 Group:		Development/Other
 Url:		http://www.gnu.org/software/autoconf/
@@ -21,6 +21,7 @@ Patch1:		autoconf-2.64-drop-failing-parallel-test.patch
 Patch2:		autoreconf-default-i.patch
 Patch3:		autoconf-2.69-perl-5.22-autoscan.patch
 Patch4:		autoconf-2.69-clang.patch
+Patch5:		0001-Change-default-runstatedir-location-to-run.patch
 BuildArch:	noarch
 BuildRequires:	help2man
 BuildRequires:	m4
@@ -71,8 +72,8 @@ install -D -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/emacs/site-start.d/%{nam
 
 # if emacs-bin was not here, *.el and *.elc files will be missing - install *.el files anyway
 if [ ! -d %{buildroot}/%{_datadir}/emacs/site-lisp ]; then
-	mkdir -p %{buildroot}/%{_datadir}/emacs/site-lisp
-	install -m644 lib/emacs/*.el %{buildroot}/%{_datadir}/emacs/site-lisp
+    mkdir -p %{buildroot}/%{_datadir}/emacs/site-lisp
+    install -m644 lib/emacs/*.el %{buildroot}/%{_datadir}/emacs/site-lisp
 fi
 
 %if %docheck
