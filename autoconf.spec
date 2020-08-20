@@ -21,7 +21,7 @@ Patch1:		autoconf-2.64-drop-failing-parallel-test.patch
 Patch2:		autoreconf-default-i.patch
 Patch3:		autoconf-2.69-perl-5.22-autoscan.patch
 Patch4:		autoconf-2.69-clang.patch
-Patch5:		0001-Change-default-runstatedir-location-to-run.patch
+Patch5:		autoconf-2.69-add-runstatedir.patch
 BuildArch:	noarch
 BuildRequires:	help2man
 BuildRequires:	m4
