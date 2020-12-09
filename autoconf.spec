@@ -9,8 +9,8 @@
 Summary:	A GNU tool for automatically configuring source code
 Name:		autoconf
 Epoch:		1
-Version:	2.69
-Release:	20
+Version:	2.70
+Release:	1
 License:	GPLv2+ with exceptions
 Group:		Development/Other
 Url:		http://www.gnu.org/software/autoconf/
@@ -19,7 +19,6 @@ Source1:	autoconf-site-start.el
 Patch0:		autoconf-2.62-fix-multiline-string.patch
 Patch1:		autoconf-2.64-drop-failing-parallel-test.patch
 Patch2:		autoreconf-default-i.patch
-Patch3:		autoconf-2.69-perl-5.22-autoscan.patch
 Patch4:		autoconf-2.69-clang.patch
 Patch5:		autoconf-2.69-add-runstatedir.patch
 BuildArch:	noarch
