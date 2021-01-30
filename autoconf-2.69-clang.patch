@@ -1,7 +1,7 @@
-diff -up autoconf-2.69/lib/autoconf/c.m4.omv~ autoconf-2.69/lib/autoconf/c.m4
---- autoconf-2.69/lib/autoconf/c.m4.omv~	2019-04-03 03:38:26.471432616 +0200
-+++ autoconf-2.69/lib/autoconf/c.m4	2019-04-03 03:58:23.630181615 +0200
-@@ -454,7 +454,13 @@ _AC_ARG_VAR_LIBS()dnl
+diff -up autoconf-2.71/lib/autoconf/c.m4.4~ autoconf-2.71/lib/autoconf/c.m4
+--- autoconf-2.71/lib/autoconf/c.m4.4~	2021-01-28 21:46:48.000000000 +0100
++++ autoconf-2.71/lib/autoconf/c.m4	2021-01-30 19:26:58.416311736 +0100
+@@ -458,7 +458,13 @@ _AC_ARG_VAR_LIBS()dnl
  _AC_ARG_VAR_CPPFLAGS()dnl
  m4_ifval([$1],
        [AC_CHECK_TOOLS(CC, [$1])],
@@ -16,24 +16,24 @@ diff -up autoconf-2.69/lib/autoconf/c.m4.omv~ autoconf-2.69/lib/autoconf/c.m4
  if test -z "$CC"; then
    dnl Here we want:
    dnl	AC_CHECK_TOOL(CC, cc)
-@@ -705,8 +711,8 @@ if test -z "$CXX"; then
+@@ -712,8 +718,8 @@ if test -z "$CXX"; then
    else
      AC_CHECK_TOOLS(CXX,
  		   [m4_default([$1],
--			       [g++ c++ gpp aCC CC cxx cc++ cl.exe FCC KCC RCC xlC_r xlC])],
+-			       [g++ c++ gpp aCC CC cxx cc++ cl.exe FCC KCC RCC xlC_r xlC clang++])],
 -		   g++)
 +			       [c++ clang++ g++ gpp aCC CC cxx cc++ cl.exe FCC KCC RCC xlC_r xlC])],
 +		   c++)
    fi
  fi
  # Provide some information about the compiler.
-@@ -877,8 +883,8 @@ _AC_ARG_VAR_LIBS()dnl
+@@ -885,8 +891,8 @@ _AC_ARG_VAR_LIBS()dnl
  _AC_ARG_VAR_CPPFLAGS()dnl
  _AC_ARG_VAR_PRECIOUS([OBJC])dnl
  AC_CHECK_TOOLS(OBJC,
--	       [m4_default([$1], [gcc objcc objc cc CC])],
+-	       [m4_default([$1], [gcc objcc objc cc CC clang])],
 -	       gcc)
-+	       [m4_default([$1], [cc clang gcc objcc objc cc CC])],
++	       [m4_default([$1], [cc clang gcc objcc objc CC])],
 +	       cc)
  # Provide some information about the compiler.
  _AS_ECHO_LOG([checking for _AC_LANG compiler version])

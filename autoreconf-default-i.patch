@@ -1,25 +1,26 @@
---- autoconf-2.69/bin/autoreconf.in.omv~	2014-02-21 11:22:47.738212775 +0100
-+++ autoconf-2.69/bin/autoreconf.in	2014-02-21 11:26:16.180204242 +0100
-@@ -70,7 +70,8 @@ Operation modes:
+diff -up autoconf-2.71/bin/autoreconf.in.3~ autoconf-2.71/bin/autoreconf.in
+--- autoconf-2.71/bin/autoreconf.in.3~	2021-01-28 21:46:48.000000000 +0100
++++ autoconf-2.71/bin/autoreconf.in	2021-01-30 19:18:26.473622829 +0100
+@@ -80,7 +80,8 @@ Operation modes:
    -v, --verbose            verbosely report processing
    -d, --debug              don't remove temporary files
-   -f, --force              consider all files obsolete
--  -i, --install            copy missing auxiliary files
-+  -i, --install            copy missing auxiliary files (default)
+   -f, --force              consider all generated and standard files obsolete
+-  -i, --install            copy missing standard auxiliary files
++  -i, --install            copy missing standard auxiliary files (default)
 +      --no-install         don't copy missing auxiliary files
        --no-recursive       don't rebuild sub-packages
    -s, --symlink            with -i, install symbolic links instead of copies
    -m, --make               when applicable, re-run ./configure && make
-@@ -116,7 +117,7 @@ my $autopoint  = $ENV{'AUTOPOINT'}  || '
- my $make       = $ENV{'MAKE'}       || 'make';
+@@ -129,7 +130,7 @@ my $autopoint   = $ENV{'AUTOPOINT'}   ||
+ my $make        = $ENV{'MAKE'}        || 'make';
  
  # --install -- as --add-missing in other tools.
 -my $install = 0;
 +my $install = 1;
  # symlink -- when --install, use symlinks instead.
  my $symlink = 0;
- # Does aclocal support --force?
-@@ -155,7 +156,7 @@ sub parse_args ()
+ 
+@@ -160,7 +161,7 @@ sub parse_args ()
    getopt ("W|warnings=s"         => \@warning,
  	  'I|include=s'          => \@include,
  	  'B|prepend-include=s'	 => \@prepend_include,

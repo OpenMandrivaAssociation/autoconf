@@ -9,7 +9,7 @@
 Summary:	A GNU tool for automatically configuring source code
 Name:		autoconf
 Epoch:		1
-Version:	2.70
+Version:	2.71
 Release:	1
 License:	GPLv2+ with exceptions
 Group:		Development/Other
