@@ -9,15 +9,14 @@
 Summary:	A GNU tool for automatically configuring source code
 Name:		autoconf
 Epoch:		1
-Version:	2.71
-Release:	3
+Version:	2.72
+Release:	1
 License:	GPLv2+ with exceptions
 Group:		Development/Other
 Url:		http://www.gnu.org/software/autoconf/
 Source0:	ftp://ftp.gnu.org/gnu/autoconf/autoconf-%{version}.tar.xz
 Source1:	autoconf-site-start.el
 Patch0:		autoconf-2.62-fix-multiline-string.patch
-Patch1:		autoconf-2.64-drop-failing-parallel-test.patch
 Patch2:		autoreconf-default-i.patch
 Patch4:		autoconf-2.69-clang.patch
 Patch5:		autoconf-2.69-add-runstatedir.patch
