@@ -13,7 +13,7 @@ Version:	2.72
 Release:	1
 License:	GPLv2+ with exceptions
 Group:		Development/Other
-Url:		http://www.gnu.org/software/autoconf/
+Url:		https://www.gnu.org/software/autoconf/
 Source0:	ftp://ftp.gnu.org/gnu/autoconf/autoconf-%{version}.tar.xz
 Source1:	autoconf-site-start.el
 Patch0:		autoconf-2.62-fix-multiline-string.patch
