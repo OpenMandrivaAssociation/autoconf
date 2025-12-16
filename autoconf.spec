@@ -27,6 +27,7 @@ BuildRequires:	m4
 BuildRequires:	texinfo
 BuildRequires:	make
 BuildRequires:	hostname
+BuildRequires:	libtool-base
 # for tests
 %if %docheck
 BuildRequires:	bison
