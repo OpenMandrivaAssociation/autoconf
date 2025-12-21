@@ -22,6 +22,9 @@ Patch2:		autoreconf-default-i.patch
 Patch4:		autoconf-2.69-clang.patch
 Patch5:		autoconf-2.69-add-runstatedir.patch
 BuildArch:	noarch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	slibtool
 BuildRequires:	help2man
 BuildRequires:	m4
 BuildRequires:	texinfo
