@@ -10,11 +10,11 @@ Summary:	A GNU tool for automatically configuring source code
 Name:		autoconf
 Epoch:		1
 Version:	2.72
-Release:	2
+Release:	3
 License:	GPLv2+ with exceptions
 Group:		Development/Other
 Url:		https://www.gnu.org/software/autoconf/
-Source0:	ftp://ftp.gnu.org/gnu/autoconf/autoconf-%{version}.tar.xz
+Source0:	https://ftp.gnu.org/gnu/autoconf/autoconf-%{version}.tar.xz
 Source1:	autoconf-site-start.el
 Patch0:		autoconf-2.62-fix-multiline-string.patch
 Patch1:		autoconf-2.72-prefer-slibtoolize-over-libtoolize.patch
@@ -37,6 +37,7 @@ BuildRequires:	bison
 BuildRequires:	flex
 %endif
 Requires:	m4
+Requires:	gnu-config
 Provides:	autoconf2.5 = %{EVRD}
 
 %description
@@ -79,6 +80,11 @@ if [ ! -d %{buildroot}/%{_datadir}/emacs/site-lisp ]; then
     mkdir -p %{buildroot}/%{_datadir}/emacs/site-lisp
     install -m644 lib/emacs/*.el %{buildroot}/%{_datadir}/emacs/site-lisp
 fi
+
+# Use the latest config.guess/config.sub scripts
+rm %{buildroot}%{_datadir}/autoconf/build-aux/config.{guess,sub}
+ln -s %{_bindir}/config.guess %{buildroot}%{_datadir}/autoconf/build-aux/
+ln -s %{_bindir}/config.sub %{buildroot}%{_datadir}/autoconf/build-aux/
 
 %if %docheck
 %check
