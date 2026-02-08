@@ -22,6 +22,7 @@ Patch2:		autoreconf-default-i.patch
 Patch4:		autoconf-2.69-clang.patch
 Patch5:		autoconf-2.69-add-runstatedir.patch
 BuildArch:	noarch
+BuildRequires:	gnu-config
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	slibtool
