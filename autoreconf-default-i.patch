@@ -1,18 +1,16 @@
-diff -up autoconf-2.71/bin/autoreconf.in.3~ autoconf-2.71/bin/autoreconf.in
---- autoconf-2.71/bin/autoreconf.in.3~	2021-01-28 21:46:48.000000000 +0100
-+++ autoconf-2.71/bin/autoreconf.in	2021-01-30 19:18:26.473622829 +0100
-@@ -80,7 +80,8 @@ Operation modes:
-   -v, --verbose            verbosely report processing
-   -d, --debug              don't remove temporary files
-   -f, --force              consider all generated and standard files obsolete
--  -i, --install            copy missing standard auxiliary files
-+  -i, --install            copy missing standard auxiliary files (default)
-+      --no-install         don't copy missing auxiliary files
+diff -up autoconf-2.73/bin/autoreconf.in.3~ autoconf-2.73/bin/autoreconf.in
+--- autoconf-2.73/bin/autoreconf.in.3~	2026-03-21 16:23:45.888380785 +0100
++++ autoconf-2.73/bin/autoreconf.in	2026-03-21 16:26:11.804322466 +0100
+@@ -85,6 +85,7 @@ Operation modes:
+                            to have been written by hand (only config.h.in at
+                            present)
+   -i, --install            copy missing standard auxiliary files
++      --no-install         don't copy missing standard auxiliary files
        --no-recursive       don't rebuild sub-packages
    -s, --symlink            with -i, install symbolic links instead of copies
-   -m, --make               when applicable, re-run ./configure && make
-@@ -129,7 +130,7 @@ my $autopoint   = $ENV{'AUTOPOINT'}   ||
- my $make        = $ENV{'MAKE'}        || 'make';
+   -x, --exclude=CMDS       don't run any of the commands in CMDS
+@@ -145,7 +146,7 @@ my %C = (
+ my %cmd_excluded;
  
  # --install -- as --add-missing in other tools.
 -my $install = 0;
@@ -20,12 +18,12 @@ diff -up autoconf-2.71/bin/autoreconf.in.3~ autoconf-2.71/bin/autoreconf.in
  # symlink -- when --install, use symlinks instead.
  my $symlink = 0;
  
-@@ -160,7 +161,7 @@ sub parse_args ()
-   getopt ("W|warnings=s"         => \@warning,
- 	  'I|include=s'          => \@include,
- 	  'B|prepend-include=s'	 => \@prepend_include,
--	  'i|install'            => \$install,
-+	  'i|install!'           => \$install,
- 	  's|symlink'            => \$symlink,
- 	  'm|make'               => \$run_make,
- 	  'recursive!'           => \$recursive);
+@@ -196,7 +197,7 @@ sub parse_args ()
+   getopt ("W|warnings=s"          => \@warning,
+           'I|include=s'           => \@include,
+           'B|prepend-include=s'   => \@prepend_include,
+-          'i|install'             => \$install,
++          'i|install!'            => \$install,
+           'R|replace-handwritten' => \$replace_handwritten,
+           's|symlink'             => \$symlink,
+           'x|exclude=s'           => \@exclude_cmds,

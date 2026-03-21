@@ -9,8 +9,8 @@
 Summary:	A GNU tool for automatically configuring source code
 Name:		autoconf
 Epoch:		1
-Version:	2.72
-Release:	3
+Version:	2.73
+Release:	1
 License:	GPLv2+ with exceptions
 Group:		Development/Other
 Url:		https://www.gnu.org/software/autoconf/

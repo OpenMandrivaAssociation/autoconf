@@ -1,7 +1,8 @@
---- autoconf-2.62/lib/autoconf/status.m4.multiline	2008-04-06 01:04:48.000000000 +0200
-+++ autoconf-2.62/lib/autoconf/status.m4	2008-04-19 03:33:27.721188004 +0200
-@@ -1360,16 +1360,16 @@ _ACEOF
- cat >>$CONFIG_STATUS <<_ACEOF || ac_write_fail=1
+diff -up autoconf-2.73/lib/autoconf/status.m4.1~ autoconf-2.73/lib/autoconf/status.m4
+--- autoconf-2.73/lib/autoconf/status.m4.1~	2026-03-09 20:30:23.000000000 +0100
++++ autoconf-2.73/lib/autoconf/status.m4	2026-03-21 16:22:36.535973412 +0100
+@@ -1389,16 +1389,16 @@ esac
+ cat >>"$CONFIG_STATUS" <<_ACEOF || ac_write_fail=1
  # Files that config.status was made for.
  m4_ifdef([_AC_SEEN_CONFIG(FILES)],
 -[config_files="$ac_config_files"
